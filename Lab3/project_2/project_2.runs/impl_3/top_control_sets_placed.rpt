@@ -1,0 +1,130 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Jun 25 05:21:09 2021
+| Host         : xcofisapps001 running 64-bit Red Hat Enterprise Linux Workstation release 7.4 (Maipo)
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xqvu3p
+-------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    52 |
+|    Minimum number of control sets                        |     6 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |    46 |
+| Unused register locations in slices containing registers |    90 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    52 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    48 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |            2406 |          524 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |            8000 |          825 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+---------------------------------------------------+------------------+------------------+----------------+--------------+
+|     Clock Signal     |                   Enable Signal                   | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+---------------------------------------------------+------------------+------------------+----------------+--------------+
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2                       |                  |                2 |              3 |         1.50 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0         |                  |                2 |              5 |         2.50 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2                       |                  |                3 |              5 |         1.67 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0         |                  |                1 |              6 |         6.00 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_7                |                  |               12 |             46 |         3.83 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_11 |                  |                8 |             46 |         5.75 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_4  |                  |               16 |             81 |         5.06 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_8  |                  |               23 |             96 |         4.17 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_10               |                  |               23 |            102 |         4.43 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_7  |                  |               27 |            112 |         4.15 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_6                |                  |               19 |            118 |         6.21 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_8                |                  |               31 |            139 |         4.48 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_3                |                  |               29 |            143 |         4.93 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_3  |                  |               38 |            149 |         3.92 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_9                |                  |               34 |            150 |         4.41 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_4                |                  |               38 |            150 |         3.95 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_1                |                  |               41 |            153 |         3.73 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN    |                  |               32 |            155 |         4.84 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_2                |                  |               36 |            159 |         4.42 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_1  |                  |               38 |            160 |         4.21 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN    |                  |               41 |            164 |         4.00 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_11               |                  |               38 |            164 |         4.32 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_1                |                  |               37 |            165 |         4.46 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_4  |                  |               40 |            170 |         4.25 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_10 |                  |               35 |            170 |         4.86 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_5  |                  |               44 |            177 |         4.02 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_9  |                  |               32 |            179 |         5.59 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_3                |                  |               44 |            181 |         4.11 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN                  |                  |               42 |            181 |         4.31 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_5  |                  |               29 |            182 |         6.28 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_5                |                  |               47 |            183 |         3.89 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_9                |                  |               44 |            187 |         4.25 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_2  |                  |               50 |            190 |         3.80 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_10 |                  |               42 |            190 |         4.52 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_7                |                  |               50 |            197 |         3.94 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_8  |                  |               40 |            199 |         4.97 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_6  |                  |               40 |            202 |         5.05 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_1  |                  |               40 |            202 |         5.05 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_10               |                  |               50 |            208 |         4.16 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_7  |                  |               37 |            215 |         5.81 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_4                |                  |               43 |            215 |         5.00 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_2  |                  |               43 |            225 |         5.23 |
+|  mmcm_inst/clk_300_i | clk600_to_clk300_ffs_i/a_r2_repN_6                |                  |               47 |            226 |         4.81 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN                  |                  |               43 |            230 |         5.35 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_5                |                  |               52 |            230 |         4.42 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_2                |                  |               54 |            232 |         4.30 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_6  |                  |               44 |            233 |         5.30 |
+|  mmcm_inst/clk_600_i | clk300_to_clk600_ffs_i/a_r2_repN_8                |                  |               55 |            233 |         4.24 |
+|  mmcm_inst/clk_300_i | clk300_to_clk600_ffs_i/a1_2r_reg_fret_n_0_repN_3  |                  |               45 |            242 |         5.38 |
+|  mmcm_inst/clk_600_i | clk600_to_clk300_ffs_i/a1_2r_reg_fret_n_0_repN_9  |                  |               46 |            250 |         5.43 |
+|  mmcm_inst/clk_600_i |                                                   |                  |              166 |            370 |         2.23 |
+|  mmcm_inst/clk_300_i |                                                   |                  |              363 |           2036 |         5.61 |
++----------------------+---------------------------------------------------+------------------+------------------+----------------+--------------+
+
+

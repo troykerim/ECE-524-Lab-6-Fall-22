@@ -1,12 +1,13 @@
 #-----------------------------------------------------------
-# Vivado v2021.1 (64-bit)
-# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
-# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Fri Jun 25 05:08:59 2021
-# Process ID: 90114
-# Current directory: /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/synth_rqs_copy_1
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Sun Oct 23 13:21:52 2022
+# Process ID: 26185
+# Current directory: /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/synth_rqs_copy_1
 # Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/synth_rqs_copy_1/top.vds
-# Journal file: /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/synth_rqs_copy_1/vivado.jou
+# Log file: /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/synth_rqs_copy_1/top.vds
+# Journal file: /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/synth_rqs_copy_1/vivado.jou
+# Running On: troy-yoga, OS: Linux, CPU Frequency: 2600.000 MHz, CPU Physical cores: 6, Host memory: 16427 MB
 #-----------------------------------------------------------
 source top.tcl -notrace

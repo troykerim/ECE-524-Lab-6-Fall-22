@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/impl_3/top.tcl"
+  variable script "/home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/impl_3/top.tcl"
   variable category "vivado_impl"
 }
 
@@ -122,41 +122,33 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param power.enableUnconnectedCarry8PinPower 1
-  set_param power.enableCarry8RouteBelPower 1
-  set_param place.rqsEnableCongSuggForVersal 1
-  set_param power.BramSDPPropagationFix 1
-  set_param chipscope.maxJobs 5
-  set_param runs.enableI2FlowForVersal 1
-  set_param ced.repoPaths /home/blaine/.Xilinx/Vivado/2020.2/xhub/ced_store/Vivado_example_project
-  set_param gui.backgroundProgressbar 1
-  set_param qor.assessment.verbose 100
-  set_param power.enableLutRouteBelPower 1
-  set_param ips.gui.advanced 1
+  set_param chipscope.maxJobs 3
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xqvu3p-ffrc1517-2LV-e
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.cache/wt [current_project]
-  set_property parent.project_path /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.xpr [current_project]
-  set_property ip_output_repo /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.cache/wt [current_project]
+  set_property parent.project_path /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.xpr [current_project]
+  set_property ip_output_repo /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  read_qor_suggestions /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/utils_1/imports/project_2/rqs_report1.rqs
+  read_qor_suggestions /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/utils_1/imports/project_2/rqs_report1.rqs
+set _read_suggestions_ [get_qor_suggestions -quiet]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/synth_rqs_copy_1/top.dcp
+  add_files -quiet /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/synth_rqs_copy_1/top.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/OriginalConstraints/new/constraints.xdc
+  read_xdc /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/OriginalConstraints/new/constraints.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top top -part xqvu3p-ffrc1517-2LV-e
+  link_design -top top -part xqvu3p-ffrc1517-2LV-e 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
+  create_report "impl_3_init_report_qor_suggestions_flow" "report_qor_suggestions -of_objects \[get_qor_suggestions] -file init_report_qor_suggestions_0.rpt"
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }
 OPTRACE "init_design_write_hwdef" END { }
@@ -284,17 +276,17 @@ OPTRACE "route_design reports" START { REPORT }
   create_report "impl_3_route_report_methodology_0" "report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx"
   create_report "impl_3_route_report_power_0" "report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx"
   create_report "impl_3_route_report_route_status_0" "report_route_status -file top_route_status.rpt -pb top_route_status.pb"
-  create_report "impl_3_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_3_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation "
   create_report "impl_3_route_report_incremental_reuse_0" "report_incremental_reuse -file top_incremental_reuse_routed.rpt"
   create_report "impl_3_route_report_clock_utilization_0" "report_clock_utilization -file top_clock_utilization_routed.rpt"
   create_report "impl_3_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file top_bus_skew_routed.rpt -pb top_bus_skew_routed.pb -rpx top_bus_skew_routed.rpx"
 OPTRACE "route_design reports" END { }
 OPTRACE "route_design misc" START { }
   close_msg_db -file route_design.pb
-OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
-OPTRACE "route_design write_checkpoint" END { }
 } RESULT]
 if {$rc} {
+OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
+OPTRACE "route_design write_checkpoint" END { }
   write_checkpoint -force top_routed_error.dcp
   step_failed route_design
   return -code error $RESULT

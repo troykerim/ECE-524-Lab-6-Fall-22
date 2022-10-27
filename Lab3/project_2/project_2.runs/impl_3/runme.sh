@@ -3,13 +3,13 @@
 # 
 # Vivado(TM)
 # runme.sh: a Vivado-generated Runs Script for UNIX
-# Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+# Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis/2021.1/bin:/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/ids_lite/ISE/bin/lin64:/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/bin
+  PATH=/tools/Xilinx/Vitis/2022.1/bin:/tools/Xilinx/Vivado/2022.1/ids_lite/ISE/bin/lin64:/tools/Xilinx/Vivado/2022.1/bin
 else
-  PATH=/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis/2021.1/bin:/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/ids_lite/ISE/bin/lin64:/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/bin:$PATH
+  PATH=/tools/Xilinx/Vitis/2022.1/bin:/tools/Xilinx/Vivado/2022.1/ids_lite/ISE/bin/lin64:/tools/Xilinx/Vivado/2022.1/bin:$PATH
 fi
 export PATH
 
@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/impl_3'
+HD_PWD='/home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/impl_3'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

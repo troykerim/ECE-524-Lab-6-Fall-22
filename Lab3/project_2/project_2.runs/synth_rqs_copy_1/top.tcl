@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.runs/synth_rqs_copy_1/top.tcl"
+  variable script "/home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.runs/synth_rqs_copy_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,37 +70,26 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_rqs_copy_1" START { ROLLUP_AUTO }
-set_param power.enableUnconnectedCarry8PinPower 1
-set_param power.enableCarry8RouteBelPower 1
-set_param place.rqsEnableCongSuggForVersal 1
-set_param power.BramSDPPropagationFix 1
-set_param chipscope.maxJobs 5
-set_param runs.enableI2FlowForVersal 1
-set_param ced.repoPaths /home/blaine/.Xilinx/Vivado/2020.2/xhub/ced_store/Vivado_example_project
-set_param gui.backgroundProgressbar 1
-set_param qor.assessment.verbose 100
-set_param power.enableLutRouteBelPower 1
-set_param ips.gui.advanced 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xqvu3p-ffrc1517-2LV-e
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.cache/wt [current_project]
-set_property parent.project_path /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.xpr [current_project]
+set_property webtalk.parent_dir /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.cache/wt [current_project]
+set_property parent.project_path /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.cache/ip [current_project]
+set_property ip_output_repo /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/sources_1/imports/original/bit_expander.vhd
-  /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/sources_1/imports/original/bit_reducer.vhd
-  /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/sources_1/imports/original/clocking_module.vhd
-  /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/sources_1/imports/original/reg_clka_to_clkb.vhd
-  /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/sources_1/imports/original/top.vhd
+  /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/sources_1/imports/original/bit_expander.vhd
+  /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/sources_1/imports/original/bit_reducer.vhd
+  /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/sources_1/imports/original/clocking_module.vhd
+  /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/sources_1/imports/original/reg_clka_to_clkb.vhd
+  /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/sources_1/imports/original/top.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -111,15 +100,20 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/OriginalConstraints/new/constraints.xdc
-set_property used_in_implementation false [get_files /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/OriginalConstraints/new/constraints.xdc]
+read_xdc /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/OriginalConstraints/new/constraints.xdc
+set_property used_in_implementation false [get_files /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/OriginalConstraints/new/constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
-read_qor_suggestions /group/xcoswmktg/blaine/TUTORIAL/2021.1/FinalFiles/Lab2/project_2/project_2.srcs/utils_1/imports/project_2/rqs_report1.rqs
+read_qor_suggestions /home/troy/fa22-e524-lab6-troykerim/Lab3/project_2/project_2.srcs/utils_1/imports/project_2/rqs_report1.rqs
+if { [llength [get_qor_suggestions -filter {APPLICABLE_FOR != synth_design} -quiet]] > 0 } {
+  set_property ENABLED 0 [get_qor_suggestions -filter {APPLICABLE_FOR != synth_design} -quiet]
+}
+set _read_suggestions_ [get_qor_suggestions -quiet]
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
 synth_design -top top -part xqvu3p-ffrc1517-2LV-e
+report_qor_suggestions -of_objects $_read_suggestions_ -file read_qor_suggestions.rpt -quiet
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -129,7 +123,7 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef -incremental_synth top.dcp
+write_checkpoint -force -noxdef top.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
 create_report "synth_rqs_copy_1_synth_report_utilization_0" "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"
